@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  height: 34px;
+}
+
+
+/* GOOGLE LOGIN */
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}
+
+.login img {
+  height: 30px;
+}
