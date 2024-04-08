@@ -5,6 +5,20 @@ body {
 
 a {
   color: #00B7FF;
+  margin: 1rem;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1rem;
+} 
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav {
