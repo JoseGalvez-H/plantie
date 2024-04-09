@@ -4,7 +4,12 @@ module.exports = {
     index
 }
 
-function index(req, res) {
-    const plants = Plant.find({});
-    res.render('plants/index', { title: 'All Plants', plants });
+async function index(req, res) {
+    try {
+        const plants = await Plant.find({});
+        res.render('plants/index', { title: 'All Plants', plants });
+    } catch (error) {
+        console.error("Error fetching plants:", error);
+        res.status(500).send("Error fetching plants");
+    }
 }
