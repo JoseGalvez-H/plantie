@@ -12,10 +12,10 @@ const plantSchema = new Schema({
     wateredDate: {
         type: Date,
         default: () => new Date()
-    },
-    datePurchased: {
-        type: Date,
     }
+    // datePurchased: {
+    //     type: Date,
+    // }
 });
 
 module.exports = mongoose.model('Plant', plantSchema);
