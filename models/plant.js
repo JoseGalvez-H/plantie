@@ -15,7 +15,6 @@ const plantSchema = new Schema({
     },
     datePurchased: {
         type: Date,
-        default: () => new Date()
     }
 });
 

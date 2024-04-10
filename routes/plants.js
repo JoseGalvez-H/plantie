@@ -6,5 +6,7 @@ router.get('/', plantsCtrl.index);
 router.get('/new', plantsCtrl.newPlantForm);
 router.post('/add', plantsCtrl.create);
 router.get('/:id', plantsCtrl.showDetails);
+router.delete('/:id', plantsCtrl.deletePlant);
+
 
 module.exports = router;

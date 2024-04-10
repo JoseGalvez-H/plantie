@@ -10,7 +10,6 @@
                     <th>Plant Name</th>
                     <th>Nickname</th>
                     <th>Last Watered</th>
-                    <th>Purchased</th>
                     <th></th>
                 </tr>
             </thead>
@@ -18,10 +17,10 @@
                 <% plants.forEach(function(plant) { %>
                     <tr>
                         <td>
-                            <%= plant.name %> 
+                            <%= plant.name %>
                         </td>
                         <td>
-                            <%= plant.nickname || 'N/A' %> 
+                            <%= plant.nickname || 'N/A' %>
                         </td>
                         <td>
                             <%= plant.wateredDate ? plant.wateredDate.toLocaleDateString() : 'N/A' %>
@@ -30,7 +29,13 @@
                             <%= plant.datePurchased ? plant.datePurchased.toLocaleDateString() : 'N/A' %>
                         </td>
                         <td>
-                            <a href="/plants/<%= plant._id %>">DETAILS</a> 
+                            <a href="/plants/<%= plant._id %>">DETAILS</a>
+                        </td>
+                        <td>
+                            <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST"
+                                onsubmit="return confirm('Are you sure?');">
+                                <button type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     <% }); %>

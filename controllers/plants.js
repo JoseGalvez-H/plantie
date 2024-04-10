@@ -4,7 +4,8 @@ module.exports = {
     index,
     create,
     newPlantForm,
-    showDetails
+    showDetails,
+    deletePlant
 }
 
 async function index(req, res) {
@@ -43,3 +44,13 @@ async function showDetails(req, res) {
         res.status(500).send("Error fetching plant details");
     }
 }
+
+async function deletePlant(req, res) {
+    try {
+        await Plant.findByIdAndDelete(req.params.id);
+        res.redirect('/plants');
+    } catch (err) {
+        console.log(err);
+        res.redirect('/plants');
+    }
+};

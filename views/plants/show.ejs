@@ -1,12 +1,17 @@
 <%- include('../partials/header') %>
 
-<div class="container">
-    <h2>Plant Details</h2>
-    <p><strong>Name:</strong> <%= plant.name %></p>
-    <p><strong>Nickname:</strong> <%= plant.nickname || 'N/A' %></p>
-    <p><strong>Last Watered:</strong> <%= plant.wateredDate ? plant.wateredDate.toDateString() : 'N/A' %></p>
-    <p><strong>Date Purchased:</strong> <%= plant.datePurchased.toDateString() %></p>
-</div>
+    <div class="container">
+        <h2>Plant Details</h2>
+        <p><strong>Name:</strong>&nbsp;<%= plant.name %>
+        </p>
+        <p><strong>Nickname:</strong>&nbsp;<%= plant.nickname || 'N/A' %>
+        </p>
+        <p><strong>Last Watered:</strong>&nbsp;<%= plant.wateredDate ? plant.wateredDate.toDateString() : 'N/A' %>
+        </p>
+        <p><strong>Date Purchased:</strong>&nbsp;<%= plant.datePurchased ? plant.datePurchased.toDateString() : 'N/A' %>
+        </p>
+
+    </div>
 
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>
