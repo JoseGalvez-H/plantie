@@ -9,13 +9,21 @@
   <%- include('./partials/header') %>
 </head>
 
-<body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>A plant watering tracker</p>
+<body class="home-page">
+  <div class="background-image">
+    <div class="frosted-glass">
+      <h1 class="animated-heading">
+        <%= title %>
+      </h1>
+      <p class="animated-paragraph">A plant watering tracker</p>
+    </div>
+  </div>
 
   <%- include('./partials/footer') %>
+    <script src="/javascripts/home.js"></script>
 </body>
+
+<%- include('./partials/footer') %>
+  </body>
 
 </html>
