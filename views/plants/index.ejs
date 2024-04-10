@@ -2,39 +2,41 @@
 
     <div class="container">
         <header>
-                <h1>My Plants</h1>
-            </header>
-            <table>
-                <thead>
+            <h2>My Plants</h2>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Plant Name</th>
+                    <th>Nickname</th>
+                    <th>Last Watered</th>
+                    <th>Purchased</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% plants.forEach(function(plant) { %>
                     <tr>
-                        <th>Plant Name</th>
-                        <th>Nickname</th>
-                        <th>Last Watered</th>
-                        <th>Purchased</th>
-                        <th></th>
+                        <td>
+                            <%= plant.name %> 
+                        </td>
+                        <td>
+                            <%= plant.nickname || 'N/A' %> 
+                        </td>
+                        <td>
+                            <%= plant.wateredDate ? plant.wateredDate.toLocaleDateString() : 'N/A' %>
+                        </td>
+                        <td>
+                            <%= plant.datePurchased ? plant.datePurchased.toLocaleDateString() : 'N/A' %>
+                        </td>
+                        <td>
+                            <a href="/plants/<%= plant._id %>">DETAILS</a> 
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    <% plants.forEach(function(f) { %>
-                        <tr>
-                            <td>
-                                <%= f.airline %>
-                            </td>
-                            <td>
-                                <%= f.airport %>
-                            </td>
-                            <td>
-                                <%= f.flightNo %>
-                            </td>
-                            <td>
-                                <%= f.departs.toLocaleString() %>
-                            </td>
-                            <td>
-                                <a href="/plants/<%= f._id %>">DETAILS</a>
-                            </td>
-                        </tr>
-                        <% }); %>
-                </tbody>
-            </table>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+
 
     <%- include('../partials/footer') %>

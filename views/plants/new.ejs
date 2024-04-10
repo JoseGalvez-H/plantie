@@ -1,6 +1,27 @@
+
+
 <%- include('../partials/header') %>
 
-
-
+<form action="/plants/add" method="POST">
+    <div>
+        <label for="name">Plant Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="nickname">Nickname:</label>
+        <input type="text" id="nickname" name="nickname">
+    </div>
+    <div>
+        <label for="lastWateredDate">Last Watered Date:</label>
+        <input type="date" id="lastWateredDate" name="lastWateredDate" required>
+    </div>
+    <div>
+        <label for="purchaseDate">Purchase Date:</label>
+        <input type="date" id="purchaseDate" name="purchaseDate" required>
+    </div>
+    <button type="submit">Add Plant</button>
+</form>
 
 <%- include('../partials/footer') %>
+
+

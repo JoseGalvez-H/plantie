@@ -45,6 +45,13 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/plants', plantsRouter);
 
+app.get('/logout', function(req, res){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

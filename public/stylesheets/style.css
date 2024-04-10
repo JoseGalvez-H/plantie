@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  margin: 0px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,6 +16,12 @@ h1 {
     letter-spacing: 1rem;
 } 
 
+h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 p {
   display: flex;
   justify-content: center;
@@ -25,10 +32,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 0;
-  height: 34px;
+  padding: 0;
+  height: 40px;
 }
-
 
 /* GOOGLE LOGIN */
 .login {

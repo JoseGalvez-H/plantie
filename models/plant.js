@@ -2,15 +2,16 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const plantSchema = new Schema({
-    plantName: {
+    name: {
         type: String,
         required: true
     },
-    plantNickName: {
+    nickname: {
         type: String,
     },
     wateredDate: {
-        type: Date
+        type: Date,
+        default: () => new Date()
     },
     datePurchased: {
         type: Date,
