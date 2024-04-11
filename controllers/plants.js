@@ -18,10 +18,12 @@ function formatDate(dateString) {
 
 async function index(req, res) {
     try {
-        let plants = await Plant.find({});
-        plants = plants.map(plant => ({
-            ...plant.toObject(), 
-            wateredDate: formatDate(plant.wateredDate)
+        const plantsRaw = await Plant.find({ user: req.user._id })
+            .populate('comments') 
+            .exec();
+        const plants = plantsRaw.map(plant => ({
+            ...plant.toObject(),
+            wateredDate: formatDate(plant.wateredDate),
         }));
         res.render('plants/index', { title: 'All Plants', plants });
     } catch (error) {
@@ -30,13 +32,13 @@ async function index(req, res) {
     }
 }
 
-
 async function create(req, res) {
     try {
         const plantData = {
             name: req.body.name,
             nickname: req.body.nickname,
             wateredDate: req.body.wateredDate,
+            user: req.user._id,
         };
         await Plant.create(plantData);
         res.redirect('/plants');
@@ -52,10 +54,16 @@ function newPlantForm(req, res) {
 
 async function showDetails(req, res) {
     try {
-        const plant = await Plant.findById(req.params.id).populate('comments');
+        const plant = await Plant.findOne({ _id: req.params.id, user: req.user._id })
+            .populate({
+                path: 'comments', 
+                select: 'text', 
+            });
         if (!plant) {
             return res.status(404).send('Plant not found');
         }
+
+
         res.render('plants/show', { plant });
     } catch (error) {
         console.error("Error fetching plant details:", error);
@@ -65,13 +73,17 @@ async function showDetails(req, res) {
 
 async function deletePlant(req, res) {
     try {
+        const plant = await Plant.findOne({ _id: req.params.id, user: req.user._id });
+        if (!plant) {
+            return res.status(404).send("Plant not found.");
+        }
         await Plant.findByIdAndDelete(req.params.id);
         res.redirect('/plants');
-    } catch (err) {
-        console.log(err);
-        res.redirect('/plants');
+    } catch (error) {
+        console.error("Error deleting plant:", error);
+        res.status(500).send("Error deleting plant.");
     }
-};
+}
 
 async function lastWatered(req, res) {
     try {

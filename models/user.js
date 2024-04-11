@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-const User = require('../models/user');
 
 const userSchema = new Schema({
     name: String,

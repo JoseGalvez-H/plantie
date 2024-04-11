@@ -16,11 +16,12 @@ const plantSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Comment'
     }],
-    // user: {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // }
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Plant', plantSchema);
+

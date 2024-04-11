@@ -6,7 +6,10 @@
         </p>
         <p><strong>Nickname:</strong>&nbsp;<%= plant.nickname || 'N/A' %>
         </p>
-        <p><strong>Last Watered:</strong>&nbsp;<%= plant.wateredDate ? plant.wateredDate.toDateString() : 'N/A' %>
+        <p><strong>Last Watered:</strong>&nbsp;<% if (plant.wateredDate) { const [year, month,
+                day]=plant.wateredDate.split('-'); %>
+                <%= `${month}/${day}/${year}` %>
+                    <% } else { %>N/A<% } %>
         </p>
         <!-- Comment section -->
         <h2>Comments</h2>
@@ -15,11 +18,10 @@
             <textarea name="text" rows="4" cols="50"></textarea><br>
             <button type="submit">Add Comment</button>
         </form>
-
         <h2>Comments</h2>
         <ul>
             <% plant.comments.forEach(comment=> { %>
-                <li><%- comment.text.replace(/\n/g, '<br>' ) %></li>
+                <li><%- comment.text ? comment.text.replace(/\n/g, '<br>' ) : 'No text provided' %></li>
                 <% }) %>
         </ul>
     </div>

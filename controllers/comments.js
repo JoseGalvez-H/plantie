@@ -8,22 +8,18 @@ module.exports = {
     delete: deleteComment
 };
 
-// Create a new comment
 async function create(req, res) {
     try {
         const plant = await Plant.findById(req.params.id); 
         if (!plant) return res.status(404).send('Plant not found');
-
         const comment = new Comment({
             text: req.body.text, 
             user: req.user._id, 
             plant: plant._id 
         });
         await comment.save(); 
-
         plant.comments.push(comment); 
         await plant.save(); 
-
         res.redirect(`/plants/${plant._id}`); 
     } catch (error) {
         console.error("Error creating comment:", error);
@@ -31,7 +27,6 @@ async function create(req, res) {
     }
 }
 
-// Get a single comment by ID
 async function getOne(req, res) {
     try {
         const comment = await Comment.findById(req.params.id);
@@ -45,7 +40,6 @@ async function getOne(req, res) {
     }
 }
 
-// Update a comment by ID
 async function update(req, res) {
     try {
         const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, { new: true });
