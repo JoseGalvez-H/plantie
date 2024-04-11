@@ -1,23 +1,28 @@
-
-
 <%- include('../partials/header') %>
 
-<form action="/plants/add" method="POST">
-    <div>
-        <label for="name">Plant Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="page-header">
+        <h2>ADD A PLANT</h2>
     </div>
-    <div>
-        <label for="nickname">Nickname:</label>
-        <input type="text" id="nickname" name="nickname">
+
+    <div class="form-container">
+        <form action="/plants/add" method="POST" class="add-plant-form">
+            <div class="form-group">
+                <label for="name">Plant Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname">
+            </div>
+            <div class="form-group">
+                <label for="lastWateredDate">Last Watered Date:</label>
+                <input type="date" id="wateredDate" name="wateredDate" required>
+            </div>
+            <div class="btn">
+                <button type="submit" class="btn">Add Plant</button>
+                <!-- <button type="submit" class="btn btn-submit">Add Plant</button> -->
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="lastWateredDate">Last Watered Date:</label>
-        <input type="date" id="wateredDate" name="wateredDate" required>
-    </div>
-    <button type="submit">Add Plant</button>
-</form>
 
-<%- include('../partials/footer') %>
-
-
+    <%- include('../partials/footer') %>

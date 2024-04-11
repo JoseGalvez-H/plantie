@@ -35,6 +35,10 @@ h1, h2 {
   color: var(--primary-100);
 }
 
+h1 {
+  font-size: 50px;
+}
+
 h2 {
   letter-spacing: normal;
 }
@@ -48,11 +52,16 @@ nav {
   justify-content: center;
   align-items: center;
   padding: 0;
-  height: 40px;
+  height: 50px;
   background-color: var(--primary-200);
 }
 
-/* Google login */
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .login {
   display: flex;
   justify-content: center;
@@ -75,24 +84,14 @@ nav {
   transition: opacity 1.6s ease-in-out;
 }
 
-.frosted-glass {
-  background-color: rgba(var(--primary-300), 0.8);
-}
-
-@supports (backdrop-filter: blur(5px)) {
-  .frosted-glass {
-      backdrop-filter: blur(5px);
-      background-color: rgba(var(--primary-300), 0.5);
-  }
-}
-
 body.home-page.loaded .background-image {
   opacity: 1; 
 }
 
 .animated-heading, .animated-paragraph {
-  opacity: 0; 
-  transition: opacity 1s ease-in-out; 
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  transform: translateY(50px);
 }
 
 body.home-page.loaded .animated-heading {
@@ -105,4 +104,176 @@ body.home-page.loaded .animated-paragraph {
 
 body.home-page {
   background-color: transparent;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--bg-100);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.add-plant-form .form-group {
+  margin: 15px;
+}
+
+.add-plant-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text-200);
+}
+
+.add-plant-form input[type="text"],
+.add-plant-form input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--primary-200);
+  background-color: var(--bg-200);
+  color: var(--text-100);
+}
+
+.btn-submit {
+  background-color: var(--accent-100);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: var(--accent-200);
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--bg-100);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid var(--primary-200);
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: var(--primary-300);
+  color: white;
+  border-radius: 5px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--bg-200);
+}
+
+.btn, .btn-delete {
+  color: white;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn {
+  background-color: var(--primary-100);
+  margin: 7px;
+}
+
+.btn:hover {
+  background-color: var(--primary-200);
+}
+
+.btn-delete {
+  background-color: var(--accent-200);
+}
+
+.btn-delete:hover {
+  background-color: var(--accent-100);
+}
+
+.plant-details, .comments-section {
+  background-color: var(--bg-200);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-header {
+  text-align: center;
+  margin: 20px 0;
+  color: var(--primary-100);
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: var(--bg-100);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: var(--text-100);
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 1200px; 
+  padding: 20px;
+}
+
+.plant-details, .comments-section {
+  flex: 1; 
+  margin: 0 10px; 
+  background-color: var(--bg-200);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.comment-textarea {
+  width: calc(100% - 20px); 
+  margin-bottom: 10px;
+  border: 1px solid var(--primary-200);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.comments-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-item {
+  background-color: var(--bg-300);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

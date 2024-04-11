@@ -1,29 +1,26 @@
 <%- include('../partials/header') %>
 
-    <div class="container">
+<div class="details-container">
+    <div class="plant-details">
         <h2>Plant Details</h2>
-        <p><strong>Name:</strong>&nbsp;<%= plant.name %>
-        </p>
-        <p><strong>Nickname:</strong>&nbsp;<%= plant.nickname || 'N/A' %>
-        </p>
-        <p><strong>Last Watered:</strong>&nbsp;<% if (plant.wateredDate) { const [year, month,
-                day]=plant.wateredDate.split('-'); %>
-                <%= `${month}/${day}/${year}` %>
-                    <% } else { %>N/A<% } %>
-        </p>
-        <!-- Comment section -->
+        <p><strong>Name:</strong>&nbsp;<%= plant.name %></p>
+        <p><strong>Nickname:</strong>&nbsp;<%= plant.nickname || 'N/A' %></p>
+        <p><strong>Last Watered:</strong>&nbsp;<%= plant.wateredDate ? plant.wateredDate : 'N/A' %></p>
+    </div>
+    
+    <div class="comments-section">
         <h2>Add Comments</h2>
-        <!-- Comment form -->
-        <form action="/plants/<%= plant._id %>/comments" method="POST">
-            <textarea name="text" rows="4" cols="50"></textarea><br>
-            <button type="submit">Add Comment</button>
+        <form action="/plants/<%= plant._id %>/comments" method="POST" class="comment-form">
+            <textarea name="text" rows="4" cols="50" class="comment-textarea"></textarea><br>
+            <button type="submit" class="btn">Add Comment</button>
         </form>
         <h2>Comments</h2>
-        <ul>
-            <% plant.comments.forEach(comment=> { %>
-                <li><%- comment.text ? comment.text.replace(/\n/g, '<br>' ) : 'No text provided' %></li>
-                <% }) %>
+        <ul class="comments-list">
+            <% plant.comments.forEach(comment => { %>
+                <li class="comment-item"><%- comment.text ? comment.text.replace(/\n/g, '<br>') : 'No text provided' %></li>
+            <% }) %>
         </ul>
     </div>
+</div>
 
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

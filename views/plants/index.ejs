@@ -10,7 +10,9 @@
                     <th>Plant Name</th>
                     <th>Nickname</th>
                     <th>Last Watered</th>
-                    <th></th>
+                    <th>Update Last Watered Date</th>
+                    <th>See More</th>
+                    <th>Delete Plant</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +30,7 @@
                         <td>
                             <form action="/plants/<%= plant._id %>/water" method="POST">
                                 <input type="date" name="lastWateredDate" required>
-                                <button type="submit">Update Date</button>
+                                <button type="submit" class="btn">Update Date</button>
                             </form>
                         </td>
                         <td>
@@ -37,20 +39,15 @@
                         <td>
                             <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST"
                                 onsubmit="return confirm('Are you sure?');">
-                                <button type="submit">Delete</button>
+                                <button type="submit" class="btn">Delete</button>
                             </form>
                         </td>
-                        <!-- <td>
-                            <form action="/plants/<%= plant._id %>/water" method="POST">
-                                <input type="hidden" name="_method" value="PUT">
-                                <input type="date" name="lastWateredDate" required>
-                                <button type="submit">Update Date</button>
-                            </form>
-                        </td> -->
                     </tr>
                     <% }); %>
             </tbody>
         </table>
+        <a href="/plants/new" class="btn">Add New Plant</a>
+    </div>
     </div>
 
 

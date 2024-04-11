@@ -9,8 +9,6 @@ const plantSchema = new Schema({
     nickname: String,
     wateredDate: {
         type: String,
-        // type: Date,
-        // default: () => new Date()
     },
     comments: [{
         type: Schema.Types.ObjectId,

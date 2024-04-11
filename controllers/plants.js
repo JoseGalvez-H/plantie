@@ -62,8 +62,6 @@ async function showDetails(req, res) {
         if (!plant) {
             return res.status(404).send('Plant not found');
         }
-
-
         res.render('plants/show', { plant });
     } catch (error) {
         console.error("Error fetching plant details:", error);
