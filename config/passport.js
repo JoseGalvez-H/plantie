@@ -9,7 +9,6 @@ passport.use(new GoogleStrategy(
         callbackURL: process.env.GOOGLE_CALLBACK
     },
     async function (accessToken, refreshToken, profile, cb) {
-
         try {
             let user = await User.findOne({ googleId: profile.id });
             if (user) return cb(null, user);

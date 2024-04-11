@@ -6,15 +6,20 @@ const plantSchema = new Schema({
         type: String,
         required: true
     },
-    nickname: {
-        type: String,
-    },
+    nickname: String,
     wateredDate: {
-        type: Date,
-        default: () => new Date()
-    }
-    // datePurchased: {
-    //     type: Date,
+        type: String,
+        // type: Date,
+        // default: () => new Date()
+    },
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Comment'
+    }],
+    // user: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'User',
+    //     required: true
     // }
 });
 

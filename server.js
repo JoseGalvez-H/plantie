@@ -14,6 +14,7 @@ require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var plantsRouter = require('./routes/plants');
+var commentRouter = require('./routes/comments');
 
 var app = express();
 
@@ -44,6 +45,7 @@ app.use(function (req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/plants', plantsRouter);
+app.use('/comments', commentRouter);
 
 app.get('/logout', function(req, res){
   req.logout(function(err) {

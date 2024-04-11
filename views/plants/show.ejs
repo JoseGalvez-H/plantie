@@ -8,10 +8,20 @@
         </p>
         <p><strong>Last Watered:</strong>&nbsp;<%= plant.wateredDate ? plant.wateredDate.toDateString() : 'N/A' %>
         </p>
-        <!-- <p><strong>Date Purchased:</strong>&nbsp;<%= plant.datePurchased ? plant.datePurchased.toDateString() : 'N/A' %>
-        </p> -->
+        <!-- Comment section -->
+        <h2>Comments</h2>
+        <!-- Comment form -->
+        <form action="/plants/<%= plant._id %>/comments" method="POST">
+            <textarea name="text" rows="4" cols="50"></textarea><br>
+            <button type="submit">Add Comment</button>
+        </form>
 
+        <h2>Comments</h2>
+        <ul>
+            <% plant.comments.forEach(comment=> { %>
+                <li><%- comment.text.replace(/\n/g, '<br>' ) %></li>
+                <% }) %>
+        </ul>
     </div>
-
 
     <%- include('../partials/footer') %>

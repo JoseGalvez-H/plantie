@@ -23,8 +23,15 @@
                             <%= plant.nickname || 'N/A' %>
                         </td>
                         <td>
-                            <%= plant.wateredDate ? plant.wateredDate.toLocaleDateString() : 'N/A' %>
+                            <%= plant.wateredDate ? plant.wateredDate : 'N/A' %>
                         </td>
+                        <td>
+                            <form action="/plants/<%= plant._id %>/water" method="POST">
+                                <input type="date" name="lastWateredDate" required>
+                                <button type="submit">Update Date</button>
+                            </form>
+                        </td>
+
                         <td>
                             <a href="/plants/<%= plant._id %>">DETAILS</a>
                         </td>
@@ -34,6 +41,13 @@
                                 <button type="submit">Delete</button>
                             </form>
                         </td>
+                        <!-- <td>
+                            <form action="/plants/<%= plant._id %>/water" method="POST">
+                                <input type="hidden" name="_method" value="PUT">
+                                <input type="date" name="lastWateredDate" required>
+                                <button type="submit">Update Date</button>
+                            </form>
+                        </td> -->
                     </tr>
                     <% }); %>
             </tbody>
