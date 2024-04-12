@@ -15,7 +15,7 @@ Plantie is a user-friendly web application that simplifies the management of wat
 - CSS for styling
 
 ## Getting Started
-[Click here](https://plantie-880b8eedacd5.herokuapp.com) to start using Plantie today!
+[Click here](https://plantie-880b8eedacd5.herokuapp.com) to start using Plantie!
 
 For a detailed look at the project planning, check out my Trello board:
 [Trello Board](https://trello.com/invite/b/pHLMOyre/ATTIadfa8d321dfc753fc096e047b7b13e5d5621B452/plantie)
