@@ -1,4 +1,4 @@
-var Plant = require('../models/plant');
+const Plant = require('../models/plant');
 
 module.exports = {
     formatDate,
@@ -19,15 +19,13 @@ function formatDate(dateString) {
 async function index(req, res) {
     try {
         const plantsRaw = await Plant.find({ user: req.user._id })
-            .populate('comments') 
-            .exec();
+            .populate('comments');
         const plants = plantsRaw.map(plant => ({
             ...plant.toObject(),
             wateredDate: formatDate(plant.wateredDate),
         }));
         res.render('plants/index', { title: 'All Plants', plants });
     } catch (error) {
-        console.error("Error fetching plants:", error);
         res.status(500).send("Error fetching plants");
     }
 }
@@ -43,7 +41,6 @@ async function create(req, res) {
         await Plant.create(plantData);
         res.redirect('/plants');
     } catch (error) {
-        console.error("Failed to add plant:", error);
         res.status(500).send("Error adding plant");
     }
 }
@@ -64,7 +61,6 @@ async function showDetails(req, res) {
         }
         res.render('plants/show', { plant });
     } catch (error) {
-        console.error("Error fetching plant details:", error);
         res.status(500).send("Error fetching plant details");
     }
 }
@@ -78,7 +74,6 @@ async function deletePlant(req, res) {
         await Plant.findByIdAndDelete(req.params.id);
         res.redirect('/plants');
     } catch (error) {
-        console.error("Error deleting plant:", error);
         res.status(500).send("Error deleting plant.");
     }
 }
@@ -90,7 +85,6 @@ async function lastWatered(req, res) {
         await Plant.findByIdAndUpdate(plantId, { wateredDate: lastWateredDate });
         res.redirect('/plants');
     } catch (error) {
-        console.error("Error updating plant's last watered date:", error);
         res.status(500).send("Error updating the date");
     }
 }

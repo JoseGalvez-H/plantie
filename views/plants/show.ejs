@@ -15,9 +15,14 @@
             <button type="submit" class="btn">Add Comment</button>
         </form>
         <h2>Comments</h2>
-        <ul class="comments-list">
-            <% plant.comments.forEach(comment => { %>
-                <li class="comment-item"><%- comment.text ? comment.text.replace(/\n/g, '<br>') : 'No text provided' %></li>
+        <ul>
+            <% plant.comments.forEach(function(comment) { %>
+                <li>
+                    <%= comment.text %>
+                    <form action="/comments/<%= comment._id %>?_method=DELETE" method="POST" style="display: inline;">
+                        <button type="submit">X</button>
+                    </form>
+                </li>
             <% }) %>
         </ul>
     </div>

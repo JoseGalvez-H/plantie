@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var plantsCtrl = require('../controllers/plants');
-var commentsCtrl = require('../controllers/comments');
-var ensureLoggedIn = require('../config/ensureLoggedIn'); 
+const express = require('express');
+const router = express.Router();
+const plantsCtrl = require('../controllers/plants');
+const commentsCtrl = require('../controllers/comments');
+const ensureLoggedIn = require('../config/ensureLoggedIn'); 
 
 
 router.get('/', ensureLoggedIn, plantsCtrl.index); 

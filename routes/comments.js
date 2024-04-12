@@ -4,10 +4,10 @@ const commentCtrl = require('../controllers/comments');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 router.post('/', commentCtrl.create);
-router.get('/:id', commentCtrl.getOne);
 router.put('/:id', commentCtrl.update);
 router.delete('/:id', commentCtrl.delete);
 router.post('/:id/comments', commentCtrl.create);
 router.post('/plants/:id/comments', ensureLoggedIn, commentCtrl.create);
+
 
 module.exports = router;

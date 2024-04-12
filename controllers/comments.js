@@ -3,7 +3,6 @@ const Plant = require('../models/plant');
 
 module.exports = {
     create,
-    getOne,
     update,
     delete: deleteComment
 };
@@ -18,25 +17,12 @@ async function create(req, res) {
             plant: plant._id 
         });
         await comment.save(); 
-        plant.comments.push(comment); 
+        plant.comments.unshift(comment); 
         await plant.save(); 
         res.redirect(`/plants/${plant._id}`); 
     } catch (error) {
         console.error("Error creating comment:", error);
         res.status(500).send("Error creating comment");
-    }
-}
-
-async function getOne(req, res) {
-    try {
-        const comment = await Comment.findById(req.params.id);
-        if (!comment) {
-            return res.status(404).send('Comment not found');
-        }
-        res.send(comment.toString());
-    } catch (error) {
-        console.error("Error getting comment:", error);
-        res.status(500).send("Error getting comment");
     }
 }
 
@@ -55,13 +41,17 @@ async function update(req, res) {
 
 async function deleteComment(req, res) {
     try {
-        const comment = await Comment.findByIdAndDelete(req.params.id);
+        const comment = await Comment.findById(req.params.id).populate('plant');
         if (!comment) {
             return res.status(404).send('Comment not found');
         }
-        res.send('Comment deleted successfully');
+        if (!comment.plant) {
+            return res.status(404).send("Associated plant not found.");
+        }
+        const plantId = comment.plant._id;
+        await Comment.deleteOne({ _id: req.params.id });
+        res.redirect(`/plants/${plantId}`);
     } catch (error) {
-        console.error("Error deleting comment:", error);
         res.status(500).send("Error deleting comment");
     }
 }

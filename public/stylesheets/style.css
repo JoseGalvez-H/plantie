@@ -136,18 +136,13 @@ body.home-page {
 }
 
 .btn-submit {
-  background-color: var(--accent-100);
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
+  transform: translateY(9px);
   cursor: pointer;
 }
-
-.btn-submit:hover {
-  background-color: var(--accent-200);
-}
-
 
 .container {
   max-width: 800px;
