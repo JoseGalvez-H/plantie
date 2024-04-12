@@ -3,13 +3,14 @@
 Plantie - Your Personal Plant Watering Tracker
 
 ## Description
-Plantie is a web application designed to help users manage the watering schedule of their indoor and garden plants. With a user-friendly interface, Plantie allows users to keep track of when each plant was last watered and when it should be watered next, ensuring your green friends are always thriving. Whether you're a novice gardener or a plant enthusiast, Plantie makes plant care easy and enjoyable.
+Plantie is a user-friendly web application that simplifies the management of watering schedules for both indoor and outdoor plants. Its intuitive interface helps users quickly monitor the last time they watered their plants, ensuring that plants remain healthy and vibrant. Perfect for beginner gardeners and experienced plant lovers, Plantie makes the task of plant care straightforward and enjoyable.
 
 ## Technologies Used
 - Node.js
 - Express
 - MongoDB
 - Mongoose
+- OAuth (Google)
 - EJS for templating
 - CSS for styling
 
