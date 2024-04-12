@@ -15,7 +15,7 @@ const plantSchema = new Schema({
         ref: 'Comment'
     }],
     user: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
     }
