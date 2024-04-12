@@ -1,6 +1,6 @@
 # Plantie
 
-Plantie - Your Personal Plant Watering Tracker
+Your Personal Plant Watering Tracker
 
 ## Description
 Plantie is a user-friendly web application that simplifies the management of watering schedules for both indoor and outdoor plants. Its intuitive interface helps users quickly monitor the last time they watered their plants, ensuring that plants remain healthy and vibrant. Perfect for beginner gardeners and experienced plant lovers, Plantie makes the task of plant care straightforward and enjoyable.
